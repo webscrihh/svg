@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>svg</title>
+		<style>
+			.container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				text-align: center;
+			}
+			
+			.animate-border {
+				fill: transparent;
+				stroke: #fb3;
+				stroke-width: 3;
+				stroke-dasharray: 80 600;
+				stroke-dashoffset: -360;
+			}
+			
+			.animate-text {
+				width: 200px;
+				position: absolute;
+				top: 0;
+				line-height: 100px;
+				cursor: pointer;
+				transition: .8s;
+			}
+			.container:hover  svg .animate-border {
+				animation: lineTo .8s 1 forwards linear;
+			}
+			
+			.container:hover   .animate-text {
+				color: #fb3;
+			}
+			
+			@keyframes lineTo {
+				0% {
+				stroke-dasharray: 80 600;
+				stroke-dashoffset: -360;
+				}
+				
+				100% {
+				stroke-dasharray: 600 600;
+				stroke-dashoffset: 0;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="100">
+			<rect class="animate-border" width="200" height="100"/>
+		</svg>
+			<div class="animate-text">Please,Hover Me!</div>
+		</div>
+	</body>
+</html>
